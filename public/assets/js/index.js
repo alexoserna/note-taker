@@ -5,6 +5,7 @@ let newNoteBtn;
 let noteList;
 
 if (window.location.pathname === '/notes') {
+  console.log('in /notes changing things');
   noteTitle = document.querySelector('.note-title');
   noteText = document.querySelector('.note-textarea');
   saveNoteBtn = document.querySelector('.save-note');
