@@ -10,15 +10,14 @@ router.get('/', (req, res) => {
 
 // Saves a new note
 router.post('/', (req, res) => {
+  const newNote = req.body;
+  newNote.id = Date.now();
+  storage.push(newNote);
   fs.readFile('./db/db.json', 'utf8', (err, data) => {
     if (err) {
       console.log(err);
     } else {
-      const notes = JSON.parse(data);
-      const newNote = req.body;
-      newNote.id = Date.now();
-      notes.push(newNote);
-      fs.writeFile('./db/db.json', JSON.stringify(notes), (err) => {
+      fs.writeFile('./db/db.json', JSON.stringify(storage), (err) => {
         if (err) {
           console.log(err);
         } else {
