@@ -30,8 +30,7 @@ router.post('/', (req, res) => {
               console.log(err);
             } else {
               const updatedNotes = JSON.parse(data);
-              // Emit the updated notes to connected clients if needed
-              // ...
+             
             }
           });
         }
